@@ -21,9 +21,6 @@ COPY ./docker/php.ini /usr/local/etc/php/conf.d/
 RUN a2enmod rewrite
 COPY ./docker/000-default.conf /etc/apache2/sites-available/000-default.conf
 
-# Env
-#RUN mv .env-production .env
-
 # Remove dev composer packages
 RUN composer install --optimize-autoloader --no-dev
 RUN composer dump-autoload
