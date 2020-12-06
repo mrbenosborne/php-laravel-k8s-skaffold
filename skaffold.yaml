@@ -1,0 +1,12 @@
+apiVersion: skaffold/v2beta7
+kind: Config
+metadata:
+  name: php-and-k8s
+build:
+  artifacts:
+  - image: hello-world
+    context: services/hello-world
+deploy:
+  kubectl:
+    manifests:
+    - services/hello-world/service.yaml
